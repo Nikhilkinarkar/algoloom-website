@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  html, body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #0b0f19;
+    color: #ffffff;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
+  /* Navigation Bar */
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 6%;
+    background-color: #080b12;
+    border-bottom: 1px solid #1e293b;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-text-group {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 5px;
+  }
+  .brand {
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: #e2e8f0;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .t-circle-foot {
+    margin-bottom: -1px;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover {
+    color: #67e8f9;
+  }
+
+  /* Hero Section */
+  .hero {
+    width: 100%;
+    padding: 65px 6%;
+    background: radial-gradient(circle at 75% 45%, #162447 0%, #0b0f19 65%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  .hero-content {
+    flex: 1;
+    min-width: 280px;
+    text-align: left;
+  }
+  .tagline-top {
+    color: #67e8f9;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .hero h1 {
+    font-size: clamp(30px, 5vw, 44px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+  .hero p {
+    font-size: 18px;
+    color: #cbd5e1;
+    max-width: 580px;
+    margin-bottom: 32px;
+    line-height: 1.65;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: linear-gradient(90deg, #38bdf8, #818cf8);
+    color: #080b12;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+  }
+  .hero-logo-box {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Services Section */
+  .services {
+    width: 100%;
+    padding: 70px 6%;
+    background-color: #f8fafc;
+    color: #0f172a;
+    text-align: center;
+  }
+  .services h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+  .services .subtitle {
+    color: #64748b;
+    margin-bottom: 45px;
+    font-size: 16px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .card {
+    background: #ffffff;
+    padding: 32px 24px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+    text-align: center;
+  }
+  .icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  .card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #0f172a;
+  }
+  .card p {
+    font-size: 14.5px;
+    color: #475569;
+  }
+
+  /* About & Contact Section */
+  .about-contact {
+    width: 100%;
+    padding: 70px 6%;
+    background-color: #0b0f19;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 45px;
+  }
+  .info-box h2 {
+    font-size: 26px;
+    color: #38bdf8;
+    margin-bottom: 16px;
+  }
+  .info-box p {
+    color: #cbd5e1;
+    font-size: 15.5px;
+    margin-bottom: 14px;
+    line-height: 1.7;
+  }
+  .contact-item {
+    margin-top: 10px;
+    font-size: 15px;
+    color: #e2e8f0;
+  }
+  .contact-item strong {
+    color: #38bdf8;
+  }
+  .contact-item a {
+    color: #e2e8f0;
+    text-decoration: underline;
+    text-decoration-color: rgba(56, 189, 248, 0.45);
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  .contact-item a:hover {
+    color: #67e8f9;
+  }
+
+  /* Footer */
+  footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 5%;
+    background-color: #06080e;
+    color: #64748b;
+    font-size: 13px;
+    border-top: 1px solid #1e293b;
+  }
+
+  /* Mobile Responsive Adjustments */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: center;
+      padding: 14px 4%;
+      gap: 12px;
+    }
+    .nav-links {
+      justify-content: center;
+      gap: 16px;
+    }
+    .nav-links a {
+      font-size: 14px;
+    }
+    .hero {
+      padding: 45px 5%;
+      flex-direction: column;
+      text-align: center;
+      gap: 32px;
+    }
+    .hero-content {
+      min-width: 100%;
+      text-align: center;
+    }
+    .hero p {
+      font-size: 16px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-logo-box {
+      width: 100%;
+    }
+    .hero-logo-box svg {
+      width: 210px;
+      height: 210px;
+    }
+    .services, .about-contact {
+      padding: 50px 5%;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Shared High-Precision SVG Definitions for Exact Logo -->
+  <svg width="0" height="0" style="position:absolute;">
+    <defs>
+      <filter id="cyanGlow" x="-40%" y="-40%" width="180%" height="180%">
+        <feGaussianBlur stdDeviation="3.5" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      <filter id="intenseNodeGlow" x="-100%" y="-100%" width="300%" height="300%">
+        <feGaussianBlur stdDeviation="5" result="blur1"/>
+        <feGaussianBlur stdDeviation="2" result="blur2"/>
+        <feMerge>
+          <feMergeNode in="blur1"/>
+          <feMergeNode in="blur2"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      <linearGradient id="bandGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#a5b4fc" stop-opacity="0.95"/>
+        <stop offset="50%" stop-color="#818cf8" stop-opacity="0.85"/>
+        <stop offset="100%" stop-color="#67e8f9" stop-opacity="0.9"/>
+      </linearGradient>
+      <linearGradient id="bandGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#818cf8" stop-opacity="0.85"/>
+        <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.85"/>
+      </linearGradient>
+      <linearGradient id="bandGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#6366f1" stop-opacity="0.8"/>
+        <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0.8"/>
+      </linearGradient>
+      <linearGradient id="darkFace" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#0f172a" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#060913" stop-opacity="0.95"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <nav>
+    <div class="brand-wrapper">
+      <svg width="40" height="40" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="120" cy="120" r="102" stroke="#67e8f9" stroke-width="1.5" stroke-dasharray="28 18 8 18" opacity="0.45"/>
+        <polygon points="120,34 192,76 192,162 120,204 48,162 48,76" fill="url(#darkFace)" stroke="#67e8f9" stroke-width="4" filter="url(#cyanGlow)"/>
+        <polygon points="120,118 192,76 192,93 120,135" fill="url(#bandGrad1)"/>
+        <polygon points="120,147 192,105 192,122 120,164" fill="url(#bandGrad2)"/>
+        <polygon points="120,176 192,134 192,151 120,193" fill="url(#bandGrad3)"/>
+        <line x1="72" y1="90" x2="72" y2="176" stroke="#67e8f9" stroke-width="1.8" opacity="0.5"/>
+        <line x1="96" y1="104" x2="96" y2="190" stroke="#67e8f9" stroke-width="1.8" opacity="0.5"/>
+        <path d="M 72 155 C 72 105, 92 78, 120 96" stroke="#a5f3fc" stroke-width="2.5" fill="none"/>
+        <path d="M 96 168 C 96 118, 114 90, 144 106" stroke="#a5f3fc" stroke-width="2.5" fill="none"/>
+        <polyline points="48,76 120,118 192,76" stroke="#67e8f9" stroke-width="3"/>
+        <line x1="120" y1="118" x2="120" y2="204" stroke="#67e8f9" stroke-width="3"/>
+        <circle cx="120" cy="34" r="5" fill="#ffffff" filter="url(#intenseNodeGlow)"/>
+        <polygon points="120,110 128,118 120,126 112,118" fill="#ffffff" filter="url(#intenseNodeGlow)"/>
+      </svg>
+
+      <div class="brand-text-group">
+        <div class="brand">ALGOLOOM</div>
+        <svg class="t-circle-foot" width="14" height="14" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="12" stroke="#67e8f9" stroke-width="2.2"/>
+          <path d="M9.5 10H18.5M14 10V18.5" stroke="#67e8f9" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="tagline-top">WEAVING INTELLIGENCE INTO SIMPLICITY</div>
+      <h1>ALGOLOOM<br>TECHNOLOGIES</h1>
+      <p>Algorithms looming smart data into high-value, profitable AI software.</p>
+      <a href="mailto:dnyanesh.onmail@gmail.com?subject=AI%20%26%20Data%20Project%20Inquiry%20-%20Algoloom%20Technologies" class="btn-primary">GET A FREE QUOTE</a>
+    </div>
+    
+    <!-- Large Exact Algoloom 3D Isometric Cube Graphic on Right -->
+    <div class="hero-logo-box">
+      <svg width="260" height="260" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="120" cy="120" r="108" stroke="#67e8f9" stroke-width="1" stroke-dasharray="32 22 6 22" opacity="0.4"/>
+        <circle cx="120" cy="120" r="96" stroke="#818cf8" stroke-width="0.8" stroke-dasharray="14 28" opacity="0.3"/>
+        <polygon points="120,34 192,76 192,162 120,204 48,162 48,76" fill="url(#darkFace)"/>
+        <polygon points="120,118 192,76 192,93 120,135" fill="url(#bandGrad1)"/>
+        <polygon points="120,147 192,105 192,122 120,164" fill="url(#bandGrad2)"/>
+        <polygon points="120,176 192,134 192,151 120,193" fill="url(#bandGrad3)"/>
+        <line x1="72" y1="90" x2="72" y2="176" stroke="#67e8f9" stroke-width="1" opacity="0.35"/>
+        <line x1="96" y1="104" x2="96" y2="190" stroke="#67e8f9" stroke-width="1" opacity="0.35"/>
+        <line x1="48" y1="105" x2="120" y2="147" stroke="#67e8f9" stroke-width="1" opacity="0.3"/>
+        <line x1="48" y1="134" x2="120" y2="176" stroke="#67e8f9" stroke-width="1" opacity="0.3"/>
+        <line x1="144" y1="104" x2="144" y2="190" stroke="#a5b4fc" stroke-width="1" opacity="0.35"/>
+        <line x1="168" y1="90" x2="168" y2="176" stroke="#a5b4fc" stroke-width="1" opacity="0.35"/>
+        <path d="M 66 168 C 66 105, 86 68, 118 82 L 154 102" stroke="#c4b5fd" stroke-width="1.6" fill="none" opacity="0.8" filter="url(#cyanGlow)"/>
+        <path d="M 84 178 C 84 115, 104 78, 136 92 L 172 112" stroke="#a5f3fc" stroke-width="1.8" fill="none" opacity="0.9" filter="url(#cyanGlow)"/>
+        <path d="M 102 188 C 102 125, 122 88, 154 102" stroke="#e0f2fe" stroke-width="1.5" fill="none" opacity="0.75"/>
+        <polygon points="120,34 192,76 192,162 120,204 48,162 48,76" stroke="#67e8f9" stroke-width="2.5" fill="none" filter="url(#cyanGlow)"/>
+        <polyline points="48,76 120,118 192,76" stroke="#67e8f9" stroke-width="2" fill="none" opacity="0.85"/>
+        <line x1="120" y1="118" x2="120" y2="204" stroke="#67e8f9" stroke-width="2" opacity="0.85"/>
+        <circle cx="120" cy="34" r="4.5" fill="#ffffff" filter="url(#intenseNodeGlow)"/>
+        <polygon points="120,110 128,118 120,126 112,118" fill="#ffffff" filter="url(#intenseNodeGlow)"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2>OUR SERVICES</h2>
+    <p class="subtitle">Turning complex raw data into actionable intelligence and high-value software</p>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🧠</div>
+        <h3>AI-Driven Software Solutions</h3>
+        <p>Custom, scalable software and intelligent applications engineered around data-centric workflows to automate decisions and accelerate growth.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>Data & Digital Footprint Analytics</h3>
+        <p>Deep behavioral insights, digital footprint tracking, and predictive data modeling to uncover hidden patterns and optimize business strategy.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💬</div>
+        <h3>Sentiment Analysis & NLP</h3>
+        <p>AI-powered natural language processing to analyze customer feedback, social trends, and brand perception in real time with high accuracy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-contact" id="about">
+    <div class="info-box">
+      <h2>About Us</h2>
+      <p>At <strong>Algoloom Technologies</strong>, we go beyond traditional software development. In an AI-first world, ordinary apps quickly become obsolete.</p>
+      <p>Based in Nagpur, Maharashtra, we architect intelligent, data-centric applications—leveraging digital footprint analytics, sentiment intelligence, and practical AI—to build digital products that are inherently more valuable, deeply sustainable, and engineered for long-term profitability.</p>
+    </div>
+    <div class="info-box" id="contact">
+      <h2>Contact Us</h2>
+      <p>Looking to build an AI-powered product or unlock insights from your business data? Reach out to us today.</p>
+      <div class="contact-item"><strong>Email:</strong> <a href="mailto:dnyanesh.onmail@gmail.com">dnyanesh.onmail@gmail.com</a></div>
+      <div class="contact-item"><strong>Phone:</strong> <a href="tel:+919511224622">+91 9511224622</a></div>
+      <div class="contact-item"><strong>WhatsApp:</strong> <a href="https://wa.me/919511224622" target="_blank" rel="noopener">Chat on WhatsApp (+91 9511224622)</a></div>
+      <div class="contact-item"><strong>Telegram:</strong> <a href="https://t.me/+919511224622" target="_blank" rel="noopener">Message on Telegram (+91 9511224622)</a></div>
+      <div class="contact-item"><strong>Location:</strong> Nagpur, Maharashtra, India</div>
+      <div class="contact-item"><strong>Hours:</strong> Mon – Sat, 10:00 AM – 7:00 PM</div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Algoloom Technologies. All Rights Reserved. | Udyam Registered MSME
+  </footer>
+
+</body>
+</html>
