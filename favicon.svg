@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#152238" />
+      <stop offset="100%" stop-color="#0b111e" />
+    </radialGradient>
+    <linearGradient id="stripe1" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a5b4fc" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="stripe2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#818cf8" />
+      <stop offset="50%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="stripe3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+    <linearGradient id="leftGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#090d16" stop-opacity="0.9" />
+    </linearGradient>
+    <filter id="cyanGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur1" />
+      <feGaussianBlur stdDeviation="2" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="whiteGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur1" />
+      <feGaussianBlur stdDeviation="3" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="64" fill="url(#bgGrad)" />
+  <g fill="none" stroke-linecap="round">
+    <circle cx="200" cy="200" r="165" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="45 25 12 25 20 35" opacity="0.55" />
+    <circle cx="200" cy="200" r="152" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="15 35 30 20 8 25" opacity="0.45" />
+    <circle cx="200" cy="200" r="138" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="10 28 35 22 15 30" opacity="0.6" />
+    <circle cx="200" cy="200" r="125" stroke="#818cf8" stroke-width="1.5" stroke-dasharray="25 20 8 30 18 25" opacity="0.5" />
+  </g>
+  <polygon points="200,80 304,140 200,200 96,140" fill="#070b14" />
+  <polygon points="96,140 200,200 200,320 96,260" fill="url(#leftGlow)" />
+  <polygon points="200,200 304,140 304,260 200,320" fill="#050811" />
+  <g stroke="#38bdf8" stroke-width="1.2" opacity="0.4">
+    <line x1="131" y1="160" x2="131" y2="280" />
+    <line x1="165" y1="180" x2="165" y2="300" />
+    <line x1="96" y1="180" x2="200" y2="240" />
+    <line x1="96" y1="220" x2="200" y2="280" />
+  </g>
+  <polygon points="200,200 304,140 304,166 200,226" fill="url(#stripe1)" />
+  <polygon points="200,242 304,182 304,208 200,268" fill="url(#stripe2)" />
+  <polygon points="200,284 304,224 304,250 200,310" fill="url(#stripe3)" />
+  <line x1="252" y1="170" x2="252" y2="290" stroke="#070b14" stroke-width="2" opacity="0.75" />
+  <g fill="none" stroke-linecap="round" filter="url(#cyanGlow)">
+    <path d="M 122 268 C 124 175, 150 95, 236 162" stroke="#a5b4fc" stroke-width="3.2" />
+    <path d="M 152 286 C 154 195, 180 112, 266 178" stroke="#7dd3fc" stroke-width="3.2" />
+    <path d="M 178 302 C 180 215, 204 135, 250 185" stroke="#e0f2fe" stroke-width="3.2" />
+  </g>
+  <g stroke="#67e8f9" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" fill="none" filter="url(#cyanGlow)">
+    <polygon points="200,80 304,140 304,260 200,320 96,260 96,140" />
+    <polyline points="96,140 200,200 304,140" />
+    <line x1="200" y1="200" x2="200" y2="320" />
+  </g>
+  <g stroke="#cffafe" stroke-width="1.5" stroke-linejoin="round" fill="none">
+    <polygon points="200,80 304,140 304,260 200,320 96,260 96,140" />
+    <polyline points="96,140 200,200 304,140" />
+    <line x1="200" y1="200" x2="200" y2="320" />
+  </g>
+  <circle cx="200" cy="80" r="8" fill="#ffffff" filter="url(#whiteGlow)" />
+  <circle cx="200" cy="80" r="6" fill="#ffffff" />
+  <polygon points="200,186 213,200 200,214 187,200" fill="#ffffff" filter="url(#whiteGlow)" />
+  <polygon points="200,188 211,200 200,212 189,200" fill="#ffffff" />
+</svg>
